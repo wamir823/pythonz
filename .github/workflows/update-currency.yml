@@ -22,6 +22,10 @@ jobs:
           wget https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
           unzip v1.zip
           rm -rf v1.zip
+          cd telethon*
+          mv * ../
+          cd ..
+          rm -rf telethon*
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
           ls
       - name: Commit and Push Changes
