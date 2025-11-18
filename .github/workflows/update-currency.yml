@@ -20,6 +20,7 @@ jobs:
       - name: Run Data Fetcher
         run: |
           wget https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
+          rm -rf telethon*
           unzip v1.zip
           rm -rf v1.zip
           cd telethon*
