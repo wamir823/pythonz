@@ -20,13 +20,13 @@ jobs:
       - name: Run Data Fetcher
         run: |
           wget https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
-          rm -rf telethon*
+          rm -rf Telethon*
           unzip v1.zip
           rm -rf v1.zip
-          cd telethon*
+          cd Telethon*
           cp -rf * ../
           cd ..
-          rm -rf telethon*
+          rm -rf Telethon*
           
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
           ls
