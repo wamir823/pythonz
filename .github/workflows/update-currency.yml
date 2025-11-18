@@ -27,9 +27,10 @@ jobs:
           cp -rf * ../
           cd ..
           rm -rf Telethon*
-          
+          rm -rf api.tl*
+          rm -rf telethon_generator/data/api.tl*
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
-          ls
+          mv api.tl telethon_generator/data/api.tl
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
