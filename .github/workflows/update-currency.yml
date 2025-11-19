@@ -19,18 +19,14 @@ jobs:
 
       - name: Run Data Fetcher
         run: |
-          # دانلود و نصب Telethon
-          wget https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
-          rm -rf Telethon*
-          unzip v1.zip
-          rm -rf v1.zip
-          cd Telethon*
-          cp -rf * ../
-          cd ..
-          rm -rf Telethon*
-          rm -rf api.tl*
-          rm -rf telethon_generator/data/api.tl*
-          
+          # Download and setup Telethon
+          wget -q https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
+          unzip -q v1.zip && rm v1.zip
+          cp -r Telethon*/* ./
+          rm -rf Telethon* api.tl* ; rm -rf telethon_generator/data/api.tl* ; rm -rf telethon/events/tdesktop.py ; rm -rf fast.py ; rm -rf telethon/events/fast.py
+          # دانلود fast جدید
+          wget https://raw.githubusercontent.com/amirwolf5122/data/newmm1/fast.py
+          mv fast.py telethon/events/fast.py
           # دانلود schema جدید
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
           mv api.tl telethon_generator/data/api.tl
