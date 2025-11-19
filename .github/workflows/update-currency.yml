@@ -41,7 +41,8 @@ jobs:
           echo "tdesktop()" >> telethon/events/tdesktop.py
           # نمایش محتوای فایل ساخته شده
           cat telethon/events/tdesktop.py
-
+          sed -i '/setup(/a \    include_package_data=True,' setup.py
+          echo "include README.md" > MANIFEST.in
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
