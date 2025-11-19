@@ -212,7 +212,7 @@ def main(argv):
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
-    include_package_data=True,
+            include_package_data=True,
             name='Telethon',
             version=version,
             description="Full-featured Telegram client library for Python 3",
