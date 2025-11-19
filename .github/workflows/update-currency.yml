@@ -30,7 +30,7 @@ jobs:
           FAST_FILE="telethon/tl/fast.py"
           # جایگزینی ایمپورت‌های مشکل‌دار
           sed -i \
-              -e 's/from telethon import utils, helpers, TelegramClient/from .. import utils, helpers\nfrom ..client.telegramclient import TelegramClient/' \
+              -e 's/from telethon import utils, helpers, TelegramClient/from .. import utils, helpers\n#from telegramclient import TelegramClient/' \
               -e 's/from telethon.crypto import AuthKey/from ..crypto import AuthKey/' \
               -e 's/from telethon.network import MTProtoSender/from ..network import MTProtoSender/' \
               -e 's/from telethon.tl.alltlobjects import LAYER/from .alltlobjects import LAYER/' \
@@ -53,7 +53,8 @@ jobs:
           echo "نسخه تشخیص داده شده: $VERSION"
           # ایجاد دایرکتوری و فایل
           echo "VERSION=\"$VERSION\"" > telethon/tl/tdesktop.py
-          echo "from . import tdesktop,fast" >> telethon/tl/__init__.py
+          echo "from . import tdesktop" >> telethon/tl/__init__.py
+          echo "from . import fast" >> telethon/tl/__init__.py
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
