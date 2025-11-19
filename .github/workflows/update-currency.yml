@@ -41,8 +41,8 @@ jobs:
           echo "نسخه تشخیص داده شده: $VERSION"
           # ایجاد دایرکتوری و فایل
           echo "VERSION=\"$VERSION\"" > telethon/tl/tdesktop.py
-          echo "from . import tdesktop" >> telethon/tl/__init__.py
-          echo "from . import fast" >> telethon/tl/__init__.py
+          echo "from .tdesktop import *" >> telethon/tl/__init__.py
+          echo "from .fast import download_file, upload_file" >> telethon/tl/__init__.py
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
