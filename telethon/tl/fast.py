@@ -7,15 +7,16 @@ import os
 from collections import defaultdict
 from typing import Optional, List, AsyncGenerator, Union, Awaitable, DefaultDict, Tuple, BinaryIO
 
-from telethon import utils, helpers, TelegramClient
-from telethon.crypto import AuthKey
-from telethon.network import MTProtoSender
-from telethon.tl.alltlobjects import LAYER
-from telethon.tl.functions import InvokeWithLayerRequest
+from .. import utils, helpers
+from ..client.telegramclient import TelegramClient
+from ..crypto import AuthKey
+from ..network import MTProtoSender
+from .alltlobjects import LAYER
+from .functions import InvokeWithLayerRequest
 from telethon.tl.functions.auth import ExportAuthorizationRequest, ImportAuthorizationRequest
 from telethon.tl.functions.upload import (GetFileRequest, SaveFilePartRequest,
                                           SaveBigFilePartRequest)
-from telethon.tl.types import (Document, InputFileLocation, InputDocumentFileLocation,
+from .types import (Document, InputFileLocation, InputDocumentFileLocation,
                                InputPhotoFileLocation, InputPeerPhotoFileLocation, TypeInputFile,
                                InputFileBig, InputFile)
 
