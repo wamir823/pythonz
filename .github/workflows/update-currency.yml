@@ -34,6 +34,8 @@ jobs:
               -e 's/from telethon.crypto import AuthKey/from ..crypto import AuthKey/' \
               -e 's/from telethon.network import MTProtoSender/from ..network import MTProtoSender/' \
               -e 's/from telethon.tl.alltlobjects import LAYER/from .alltlobjects import LAYER/' \
+              -e 's/from telethon.tl.functions.auth import/from .functions.auth import/' \
+              -e 's/from telethon.tl.functions.upload import/from .functions.upload import/' \
               -e 's/from telethon.tl.functions import/from .functions import/' \
               -e 's/from telethon.tl.types import/from .types import/' \
               "$FAST_FILE"
