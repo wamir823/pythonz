@@ -19,6 +19,7 @@ jobs:
 
       - name: Run Data Fetcher
         run: |
+          # دانلود و نصب Telethon
           wget https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
           rm -rf Telethon*
           unzip v1.zip
@@ -29,8 +30,23 @@ jobs:
           rm -rf Telethon*
           rm -rf api.tl*
           rm -rf telethon_generator/data/api.tl*
+          
+          # دانلود schema جدید
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
           mv api.tl telethon_generator/data/api.tl
+          
+          # استخراج نسخه و ساخت فایل tdesktop.py
+          VERSION=$(curl -s https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/core/version.h | grep -oP 'AppVersionStr = "\K[^"]+' | head -1)
+          echo "نسخه تشخیص داده شده: $VERSION"
+          
+          # ایجاد دایرکتوری و فایل
+          mkdir -p telethon/events
+          echo "def tdesktop():" > telethon/events/tdesktop.py
+          echo "    return \"$VERSION\"" >> telethon/events/tdesktop.py
+          echo "tdesktop()" >> telethon/events/tdesktop.py
+          # نمایش محتوای فایل ساخته شده
+          cat telethon/events/tdesktop.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
