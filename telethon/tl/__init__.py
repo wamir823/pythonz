@@ -1,1 +1,1 @@
-from .tlobject import TLObject, TLRequest
+from . import fast
