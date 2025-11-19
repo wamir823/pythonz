@@ -39,9 +39,10 @@ jobs:
           # استخراج نسخه و ساخت فایل tdesktop.py
           VERSION=$(curl -s https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/core/version.h | grep -oP 'AppVersionStr = "\K[^"]+' | head -1)
           echo "نسخه تشخیص داده شده: $VERSION"
-          
           # ایجاد دایرکتوری و فایل
-          echo "tdesktop=\"$VERSION\"" > telethon/tl/tdesktop.py
+          echo "VERSION=\"$VERSION\"" > telethon/tl/tdesktop.py
+          echo "from . import tdesktop" > telethon/tl/__init__.py
+          echo "from . import fast" > telethon/tl/__init__.py
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
