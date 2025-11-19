@@ -8,7 +8,7 @@ from collections import defaultdict
 from typing import Optional, List, AsyncGenerator, Union, Awaitable, DefaultDict, Tuple, BinaryIO
 
 from .. import utils, helpers
-from ..client.telegramclient import TelegramClient
+#from telegramclient import TelegramClient
 from ..crypto import AuthKey
 from ..network import MTProtoSender
 from .alltlobjects import LAYER
