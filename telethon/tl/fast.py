@@ -13,8 +13,8 @@ from ..crypto import AuthKey
 from ..network import MTProtoSender
 from .alltlobjects import LAYER
 from .functions import InvokeWithLayerRequest
-from telethon.tl.functions.auth import ExportAuthorizationRequest, ImportAuthorizationRequest
-from telethon.tl.functions.upload import (GetFileRequest, SaveFilePartRequest,
+from .functions.auth import ExportAuthorizationRequest, ImportAuthorizationRequest
+from .functions.upload import (GetFileRequest, SaveFilePartRequest,
                                           SaveBigFilePartRequest)
 from .types import (Document, InputFileLocation, InputDocumentFileLocation,
                                InputPhotoFileLocation, InputPeerPhotoFileLocation, TypeInputFile,
