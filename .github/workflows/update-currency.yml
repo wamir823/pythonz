@@ -19,7 +19,7 @@ jobs:
       - name: Run Data Fetcher
         run: |
           # Download and setup Telethon
-          rm v1.zip
+          rm -rf v1.zip
           wget -q https://github.com/LonamiWebs/Telethon/archive/refs/heads/v1.zip
           unzip -q v1.zip && rm v1.zip
           cp -r Telethon*/* ./
