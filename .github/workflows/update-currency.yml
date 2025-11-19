@@ -27,11 +27,11 @@ jobs:
           # دانلود fast جدید
           wget https://raw.githubusercontent.com/amirwolf5122/data/newmm1/fast.py
           mv fast.py telethon/events/fast.py
-          git clone https://github.com/amirwolf5122/cpython-3.13.9-x86_64.git
-          cd cpython-*
-          zip ../telethon/zz.py *
-          cd ..
-          rm -rf cpython-*
+          #git clone https://github.com/amirwolf5122/cpython-3.13.9-x86_64.git
+          #cd cpython-*
+          #zip ../telethon/zz.py *
+          #cd ..
+          #rm -rf cpython-*
           # دانلود schema جدید
           wget https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/SourceFiles/mtproto/scheme/api.tl
           mv api.tl telethon_generator/data/api.tl
