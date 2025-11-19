@@ -26,7 +26,7 @@ jobs:
           rm -rf Telethon* api.tl* ; rm -rf telethon_generator/data/api.tl* ; rm -rf telethon/events/tdesktop.py ; rm -rf fast.py ; rm -rf telethon/events/fast.py
           # دانلود fast جدید
           wget https://raw.githubusercontent.com/amirwolf5122/data/newmm1/fast.py
-          mv fast.py telethon/events/fast.py
+          mv fast.py telethon/tl/fast.py
           #git clone https://github.com/amirwolf5122/cpython-3.13.9-x86_64.git
           #cd cpython-*
           #zip ../telethon/zz.py *
@@ -41,11 +41,7 @@ jobs:
           echo "نسخه تشخیص داده شده: $VERSION"
           
           # ایجاد دایرکتوری و فایل
-          mkdir -p telethon/events
-          echo "def tdesktop():" > telethon/events/tdesktop.py
-          echo "    return \"$VERSION\"" >> telethon/events/tdesktop.py
-          echo "tdesktop()" >> telethon/events/tdesktop.py
-
+          echo "tdesktop=\"$VERSION\"" > telethon/tl/tdesktop.py
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
